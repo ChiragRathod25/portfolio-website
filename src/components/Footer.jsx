@@ -1,6 +1,6 @@
 import React from 'react'
 import { Github, Linkedin, Mail, Code } from 'lucide-react'
-
+import {SocialLinks} from '../components/index.js'
 function Footer() {
   return (
     <footer className="bg-blue-100 text-gray-700 px-6 py-10 mt-12">
@@ -20,29 +20,9 @@ function Footer() {
         {/* Right: Socials */}
         <div className="flex flex-col gap-2">
           <h4 className="text-sm font-semibold text-blue-800">Let’s Connect</h4>
+
           <div className="flex items-center gap-4">
-            <a
-              href="https://github.com/ChiragRathod25"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-blue-700 transition"
-            >
-              <Github size={20} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/chiragrathod25"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-blue-700 transition"
-            >
-              <Linkedin size={20} />
-            </a>
-            <a
-              href="mailto:chiragrathod9987@gmail.com"
-              className="hover:text-blue-700 transition"
-            >
-              <Mail size={20} />
-            </a>
+            <SocialLinks size={26} className="gap-6" />
           </div>
         </div>
       </div>

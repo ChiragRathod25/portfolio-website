@@ -31,6 +31,7 @@ export default function Education() {
       >
         Education
       </h2>
+      
       <div className="grid gap-8 md:grid-cols-2">
         {educationData.map((edu, index) => (
           <div

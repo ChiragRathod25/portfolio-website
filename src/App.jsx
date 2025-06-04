@@ -1,30 +1,28 @@
 import React from "react";
 import {
   Header,
-  Hero,
-  Navbar,
-  Projects,
-  Experience,
-  Education,
-  AchievementsGrid,
-  LeadershipGrid,
   Footer,
+  ScrollToHashElement,
+  ScrollToTop,
+  BuyMeCoffeeBtn,
 } from "./components/index.js";
 import "./App.css";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <>
+      <ScrollToHashElement />
+      <ScrollToTop />
       <div className="bg-blue-50 min-h-screen min-h-screen font-poppins text-gray-900">
         <Header />
-        {/* <Navbar /> */}
-        <Hero />
-        <Projects />
-        <Experience />
-        <Education />
-        <AchievementsGrid />
-        <LeadershipGrid />
 
+        <main className="container mx-auto px-4 sm:px-6 md:px-8 py-8 ">
+          <Outlet />
+        </main>
+        <div className="flex justify-center items-center ">
+          <BuyMeCoffeeBtn />
+        </div>
         <Footer />
       </div>
     </>

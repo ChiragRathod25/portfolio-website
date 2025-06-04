@@ -40,8 +40,9 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <div className="bg-blue-50 py-16 px-6 font-poppins text-gray-900">
-      <h2 className="text-3xl font-bold mb-12 text-center">Experience</h2>
+  <div className="bg-blue-50 px-6 md:px-24 py-6  font-poppins text-gray-900" id="experience"
+  >
+      <h2 className="  text-3xl md:text-4xl font-bold mb-8 text-center text-gray-800">Experience</h2>
       <div className="space-y-10 max-w-3xl mx-auto">
         {experiences.map((exp, i) => (
           <TimelineItem key={i} {...exp} />

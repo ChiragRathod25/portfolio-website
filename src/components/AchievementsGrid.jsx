@@ -25,7 +25,7 @@ function AchievementsGrid() {
 
   return (
     <div className="bg-blue-50 px-6 md:px-24 py-6 ">
-      <h2   className="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-800">Achievements</h2>
+      <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-800">Achievements</h2>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {achievements.map(({ title, description, icon: Icon, date }, i) => (
           <div
