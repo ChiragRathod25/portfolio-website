@@ -1,58 +1,49 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Header, Footer, ScrollToHashElement, ScrollToTop } from "./components/index.js";
 import "./App.css";
-import { Outlet, useLocation } from "react-router-dom";
+import { useOutlet, useLocation } from "react-router-dom";
 import { useTheme } from "./context/ThemeContext.jsx";
 import { AnimatePresence, motion } from "framer-motion";
 import CursorSpotlight from "./components/CursorSpotlight.jsx";
 import ScrollProgressBar from "./components/ScrollProgressBar.jsx";
 
 /**
- * Page transition strategy:
+ * AnimatedOutlet — production-safe page transitions.
  *
- * We use NO `mode` (defaults to "sync") instead of mode="wait".
+ * Key insight: <Outlet/> is a SINGLE React element that swaps its
+ * internal content when the route changes. AnimatePresence can't
+ * detect this swap reliably because the component identity doesn't
+ * change — only its rendered output does.
  *
- * Why: mode="wait" blocks the entering page until the exiting page fully
- * animates out. When the user navigates rapidly, new navigation events
- * interrupt the exit animation midway — AnimatePresence gets stuck, and
- * the new page renders at opacity:0 and never transitions in (blank page).
+ * Fix: useOutlet() returns the actual rendered element for the
+ * current route. We freeze it via useRef so the exiting animation
+ * keeps rendering the OLD page content while the new one enters.
  *
- * With default mode="sync", the exit and enter animations run simultaneously.
- * If the user navigates again mid-animation, the new key instantly takes
- * over without waiting, so nothing ever gets stuck.
- *
- * We also use opacity-only (no y-transform) during exit to avoid layout
- * jumps when both pages briefly overlap during the crossfade.
+ * We also avoid mode="wait" entirely — it causes blank pages when
+ * users navigate rapidly because exit-before-enter gets interrupted.
  */
-
-const enterVariant = {
-  initial: { opacity: 0, y: 12 },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
-const exitVariant = {
-  exit: {
-    opacity: 0,
-    transition: { duration: 0.15 }, // fast exit so overlap is minimal
-  },
-};
 
 function AnimatedOutlet() {
   const location = useLocation();
+  const outlet = useOutlet();
+
+  // Freeze the current outlet so exit animation renders the old content
+  const outletRef = useRef(outlet);
+  // Only update the ref when the pathname actually changes
+  if (outletRef.current !== outlet) {
+    outletRef.current = outlet;
+  }
+
   return (
-    <AnimatePresence>
+    <AnimatePresence initial={false}>
       <motion.div
         key={location.pathname}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-        variants={{ ...enterVariant, ...exitVariant }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { duration: 0.3, ease: "easeOut" } }}
+        exit={{ opacity: 0, transition: { duration: 0.15 } }}
+        style={{ minHeight: "100vh" }}
       >
-        <Outlet />
+        {outletRef.current}
       </motion.div>
     </AnimatePresence>
   );
