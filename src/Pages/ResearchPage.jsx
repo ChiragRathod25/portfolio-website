@@ -57,7 +57,10 @@ function FigureGallery() {
             whileHover={{ scale: 1.02 }}
             onClick={() => setSelected(i)}
           >
-            <div className="h-36 overflow-hidden bg-slate-900 flex items-center justify-center">
+            <div
+              className="h-36 overflow-hidden flex items-center justify-center"
+              style={{ background: "var(--bg-secondary)" }}
+            >
               <img
                 src={fig.src}
                 alt={`Fig ${i + 2}`}
@@ -83,7 +86,14 @@ function FigureGallery() {
             onClick={() => setSelected(null)}
           >
             <motion.div
-              className="glass rounded-2xl max-w-3xl w-full p-4"
+              className="rounded-2xl max-w-3xl w-full p-4"
+              style={{
+                backgroundColor: "rgba(13, 13, 26, 0.95)",
+                backdropFilter: "blur(24px)",
+                WebkitBackdropFilter: "blur(24px)",
+                border: "1px solid rgba(255,255,255,0.10)",
+                boxShadow: "0 25px 60px rgba(0,0,0,0.6)",
+              }}
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.9 }}
@@ -277,7 +287,7 @@ export default function ResearchPage() {
                   className="overflow-hidden"
                 >
                   <div className="glass rounded-2xl p-6">
-                    <h3 className="font-space font-semibold mb-4 text-white">Methodology</h3>
+                    <h3 className="font-space font-semibold mb-4" style={{ color: "var(--text-primary)" }}>Methodology</h3>
                     <ol className="space-y-4">
                       {[
                         { step: "Dataset", detail: "EuroSAT benchmark — 27,000 geo-referenced Sentinel-2 satellite image patches (64×64 px, RGB) across 10 land cover classes with ~2,700 images per class." },
@@ -306,7 +316,7 @@ export default function ResearchPage() {
 
           {/* Figure Gallery */}
           <div className="mb-8">
-            <h3 className="font-space font-semibold text-xl text-white mb-5 flex items-center gap-2">
+            <h3 className="font-space font-semibold text-xl mb-5 flex items-center gap-2" style={{ color: "var(--text-primary)" }}>
               <Image size={18} className="text-sky-400" /> Figures & Results
             </h3>
             <FigureGallery />
@@ -315,7 +325,7 @@ export default function ResearchPage() {
           {/* Notebook link */}
           <div className="glass rounded-xl p-5 flex items-center justify-between">
             <div>
-              <p className="font-space font-semibold text-sm text-white">Jupyter Notebook</p>
+              <p className="font-space font-semibold text-sm" style={{ color: "var(--text-primary)" }}>Jupyter Notebook</p>
               <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
                 Full implementation — preprocessing, model training, evaluation
               </p>

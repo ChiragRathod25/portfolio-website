@@ -29,9 +29,23 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        scrolled ? "glass shadow-2xl shadow-black/30" : "bg-transparent"
-      }`}
+      className="fixed top-0 left-0 w-full z-50 transition-all duration-500"
+      style={{
+        backdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
+        backgroundColor: scrolled
+          ? theme === "light"
+            ? "rgba(250, 251, 255, 0.82)"
+            : "rgba(7, 7, 17, 0.78)"
+          : "transparent",
+        borderBottom: scrolled
+          ? theme === "light"
+            ? "1px solid rgba(99,102,241,0.12)"
+            : "1px solid rgba(255,255,255,0.08)"
+          : "none",
+        boxShadow: scrolled ? "0 4px 32px rgba(0,0,0,0.25)" : "none",
+        willChange: "backdrop-filter",
+      }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-4 flex justify-between items-center">
         {/* Logo */}
@@ -77,7 +91,16 @@ export default function Header() {
             <button className="btn-primary text-sm py-2 px-5">
               Resume ↓
             </button>
-            <div className="absolute right-0 top-full mt-2 w-52 glass rounded-xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-2xl shadow-black/30 z-20">
+            <div
+              className="absolute right-0 top-full mt-2 w-52 rounded-xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-20"
+              style={{
+                backgroundColor: theme === "light" ? "rgba(240,244,255,0.92)" : "rgba(13,13,26,0.92)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
+                border: "1px solid rgba(99,102,241,0.2)",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
+              }}
+            >
               <a
                 href="/Chirag_Rathod_Resume_Short.pdf"
                 target="_blank"

@@ -24,25 +24,32 @@ export function ProjectDetailLayout({
     >
       {/* Hero Banner */}
       <div className={`relative py-32 px-6 md:px-16 bg-gradient-to-br ${gradient} border-b`}
-        style={{ borderColor: "rgba(255,255,255,0.06)" }}
+        style={{ borderColor: "var(--border-subtle)" }}
       >
         <div className="dot-grid absolute inset-0 opacity-30" />
         <div className="relative z-10 max-w-5xl mx-auto">
           <Link
-            to="/#projects"
-            className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors mb-8 group"
+            to="/projects"
+            className="inline-flex items-center gap-2 text-sm hover:text-indigo-400 transition-colors mb-8 group"
+            style={{ color: "var(--text-secondary)" }}
           >
             <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
             Back to Projects
           </Link>
 
-          <span className="inline-block glass text-xs font-medium text-indigo-400 px-3 py-1 rounded-full mb-4">
+          <span
+            className="inline-block text-xs font-medium text-indigo-400 px-3 py-1 rounded-full mb-4"
+            style={{
+              background: "rgba(99,102,241,0.12)",
+              border: "1px solid rgba(99,102,241,0.25)",
+            }}
+          >
             {category}
           </span>
           <h1 className="font-space text-3xl sm:text-4xl md:text-5xl font-bold gradient-text mb-4">
             {title}
           </h1>
-          <p className="text-slate-300 text-lg mb-8 max-w-2xl">{tagline}</p>
+          <p className="text-lg mb-8 max-w-2xl" style={{ color: "var(--text-secondary)" }}>{tagline}</p>
 
           {/* Tech Stack */}
           <div className="flex flex-wrap gap-2 mb-8">
@@ -89,9 +96,9 @@ export function ProjectDetailLayout({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <h2 className="font-space text-2xl font-bold text-white mb-4">Overview</h2>
+              <h2 className="font-space text-2xl font-bold mb-4" style={{ color: "var(--text-primary)" }}>Overview</h2>
               <div className="glass rounded-2xl p-6">
-                <p className="text-slate-400 leading-relaxed">{overview}</p>
+                <p className="leading-relaxed" style={{ color: "var(--text-secondary)" }}>{overview}</p>
               </div>
             </motion.div>
 
@@ -101,9 +108,9 @@ export function ProjectDetailLayout({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <h2 className="font-space text-2xl font-bold text-white mb-4">Challenges & Learnings</h2>
+                <h2 className="font-space text-2xl font-bold mb-4" style={{ color: "var(--text-primary)" }}>Challenges &amp; Learnings</h2>
                 <div className="glass rounded-2xl p-6">
-                  <p className="text-slate-400 leading-relaxed">{challenges}</p>
+                  <p className="leading-relaxed" style={{ color: "var(--text-secondary)" }}>{challenges}</p>
                 </div>
               </motion.div>
             )}
@@ -115,12 +122,12 @@ export function ProjectDetailLayout({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
           >
-            <h2 className="font-space text-2xl font-bold text-white mb-4">Key Features</h2>
+            <h2 className="font-space text-2xl font-bold mb-4" style={{ color: "var(--text-primary)" }}>Key Features</h2>
             <div className="glass rounded-2xl p-6 space-y-3">
               {features.map((f, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <span className="mt-1 w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0" />
-                  <span className="text-sm text-slate-400">{f}</span>
+                  <span className="text-sm" style={{ color: "var(--text-secondary)" }}>{f}</span>
                 </div>
               ))}
             </div>
@@ -128,8 +135,8 @@ export function ProjectDetailLayout({
         </div>
 
         {/* Back Button */}
-        <div className="mt-12 pt-8 border-t" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
-          <Link to="/#projects" className="btn-outline">
+        <div className="mt-12 pt-8 border-t" style={{ borderColor: "var(--border-subtle)" }}>
+          <Link to="/projects" className="btn-outline">
             <ArrowLeft size={16} />
             Back to All Projects
           </Link>
