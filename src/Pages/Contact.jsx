@@ -31,8 +31,17 @@ const contactInfo = [
   },
 ];
 
+const inputStyle = {
+  background: "var(--input-bg)",
+  border: "1px solid var(--input-border)",
+  color: "var(--input-text)",
+};
+
 function Contact() {
   const [state, handleSubmit, reset] = useForm("xblylyld");
+
+  const handleFocus = (e) => { e.target.style.borderColor = "#6366f1"; };
+  const handleBlur = (e) => { e.target.style.borderColor = "var(--input-border)"; };
 
   if (state.succeeded) {
     return (
@@ -49,16 +58,13 @@ function Contact() {
           <h2 className="font-space text-3xl font-bold gradient-text mb-3">
             Message Sent!
           </h2>
-          <p className="text-slate-400 mb-8">
+          <p className="mb-8" style={{ color: "var(--text-secondary)" }}>
             Thanks for reaching out! I'll get back to you shortly.
           </p>
           <div className="flex justify-center mb-8">
             <SocialLinks size={24} />
           </div>
-          <button
-            onClick={() => reset()}
-            className="btn-primary"
-          >
+          <button onClick={() => reset()} className="btn-primary">
             Send Another
           </button>
         </motion.div>
@@ -72,7 +78,6 @@ function Contact() {
       className="min-h-screen py-24 px-6 md:px-16"
       style={{ backgroundColor: "var(--bg-primary)" }}
     >
-      {/* Dot Grid */}
       <div className="dot-grid fixed inset-0 opacity-20 pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
@@ -87,13 +92,13 @@ function Contact() {
             Let's Connect
           </h1>
           <div className="section-divider mb-4" />
-          <p className="text-slate-400 max-w-xl mx-auto text-lg">
+          <p className="max-w-xl mx-auto text-lg" style={{ color: "var(--text-secondary)" }}>
             Whether you have an idea, a project, or just want to say hello — feel free to reach out!
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-10">
-          {/* ===== Left: Info Panel ===== */}
+          {/* Left: Info Panel */}
           <motion.div
             className="flex flex-col gap-6"
             initial={{ opacity: 0, x: -30 }}
@@ -101,10 +106,10 @@ function Contact() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="glass rounded-2xl p-7">
-              <h3 className="font-space text-xl font-semibold text-white mb-2">
+              <h3 className="font-space text-xl font-semibold mb-2" style={{ color: "var(--text-primary)" }}>
                 Get in touch
               </h3>
-              <p className="text-slate-400 text-sm leading-relaxed mb-6">
+              <p className="text-sm leading-relaxed mb-6" style={{ color: "var(--text-secondary)" }}>
                 I'm currently open to internship opportunities, collaborations,
                 and interesting projects. My inbox is always open — whether it's
                 a quick question or a detailed project discussion.
@@ -117,18 +122,19 @@ function Contact() {
                       <Icon size={18} />
                     </div>
                     <div>
-                      <p className="text-xs text-slate-500 mb-0.5">{label}</p>
+                      <p className="text-xs mb-0.5" style={{ color: "var(--text-muted)" }}>{label}</p>
                       {href ? (
                         <a
                           href={href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm text-slate-300 hover:text-indigo-300 transition-colors"
+                          className="text-sm hover:text-indigo-400 transition-colors"
+                          style={{ color: "var(--text-primary)" }}
                         >
                           {value}
                         </a>
                       ) : (
-                        <p className="text-sm text-slate-300">{value}</p>
+                        <p className="text-sm" style={{ color: "var(--text-primary)" }}>{value}</p>
                       )}
                     </div>
                   </div>
@@ -138,13 +144,13 @@ function Contact() {
 
             {/* Social Links */}
             <div className="glass rounded-2xl p-6">
-              <p className="text-sm text-slate-500 mb-4 font-medium">Find me on</p>
+              <p className="text-sm mb-4 font-medium" style={{ color: "var(--text-muted)" }}>Find me on</p>
               <SocialLinks size={24} />
             </div>
 
             {/* Resume Download */}
             <div className="glass rounded-2xl p-6">
-              <p className="text-sm text-slate-500 mb-4 font-medium">Download Resume</p>
+              <p className="text-sm mb-4 font-medium" style={{ color: "var(--text-muted)" }}>Download Resume</p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href="/Chirag_Rathod_Resume_Short.pdf"
@@ -166,7 +172,7 @@ function Contact() {
             </div>
           </motion.div>
 
-          {/* ===== Right: Contact Form ===== */}
+          {/* Right: Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -176,12 +182,12 @@ function Contact() {
               onSubmit={handleSubmit}
               className="glass rounded-2xl p-7 flex flex-col gap-5"
             >
-              <h3 className="font-space text-xl font-semibold text-white">
+              <h3 className="font-space text-xl font-semibold" style={{ color: "var(--text-primary)" }}>
                 Send a message
               </h3>
 
               <div>
-                <label className="block text-sm font-medium text-slate-400 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: "var(--text-secondary)" }}>
                   Your Name
                 </label>
                 <input
@@ -189,19 +195,15 @@ function Contact() {
                   name="name"
                   required
                   placeholder="Chirag Rathod"
-                  className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-slate-600 transition-all outline-none focus:ring-2"
-                  style={{
-                    background: "rgba(255,255,255,0.05)",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                    focusRingColor: "#6366f1",
-                  }}
-                  onFocus={(e) => { e.target.style.borderColor = "#6366f1"; }}
-                  onBlur={(e) => { e.target.style.borderColor = "rgba(255,255,255,0.08)"; }}
+                  className="w-full px-4 py-3 rounded-xl text-sm transition-all outline-none focus:ring-2 focus:ring-indigo-500/30"
+                  style={{ ...inputStyle, "::placeholder": { color: "var(--input-placeholder)" } }}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-400 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: "var(--text-secondary)" }}>
                   Email Address
                 </label>
                 <input
@@ -209,19 +211,16 @@ function Contact() {
                   name="email"
                   required
                   placeholder="you@example.com"
-                  className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-slate-600 transition-all outline-none"
-                  style={{
-                    background: "rgba(255,255,255,0.05)",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                  }}
-                  onFocus={(e) => { e.target.style.borderColor = "#6366f1"; }}
-                  onBlur={(e) => { e.target.style.borderColor = "rgba(255,255,255,0.08)"; }}
+                  className="w-full px-4 py-3 rounded-xl text-sm transition-all outline-none"
+                  style={inputStyle}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
                 />
                 <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-400 text-xs mt-1" />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-400 mb-2">
+                <label className="block text-sm font-medium mb-2" style={{ color: "var(--text-secondary)" }}>
                   Message
                 </label>
                 <textarea
@@ -229,13 +228,10 @@ function Contact() {
                   rows="5"
                   required
                   placeholder="Let's build something awesome together!"
-                  className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-slate-600 transition-all outline-none resize-none"
-                  style={{
-                    background: "rgba(255,255,255,0.05)",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                  }}
-                  onFocus={(e) => { e.target.style.borderColor = "#6366f1"; }}
-                  onBlur={(e) => { e.target.style.borderColor = "rgba(255,255,255,0.08)"; }}
+                  className="w-full px-4 py-3 rounded-xl text-sm transition-all outline-none resize-none"
+                  style={inputStyle}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
                 />
                 <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-400 text-xs mt-1" />
               </div>

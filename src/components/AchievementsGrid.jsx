@@ -54,7 +54,7 @@ function AchievementsGrid() {
             Achievements
           </h2>
           <div className="section-divider mb-4" />
-          <p className="text-slate-400 max-w-xl mx-auto">
+          <p className="max-w-xl mx-auto" style={{ color: "var(--text-secondary)" }}>
             Milestones, recognitions, and certifications along the journey.
           </p>
         </motion.div>
@@ -74,13 +74,13 @@ function AchievementsGrid() {
                   <Icon size={22} />
                 </div>
                 <div>
-                  <h3 className="font-space font-semibold text-white leading-snug">
+                  <h3 className="font-space font-semibold leading-snug" style={{ color: "var(--text-primary)" }}>
                     {title}
                   </h3>
-                  <p className="text-xs text-slate-500 mt-1 italic">{date}</p>
+                  <p className="text-xs mt-1 italic" style={{ color: "var(--text-muted)" }}>{date}</p>
                 </div>
               </div>
-              <p className="text-sm text-slate-400 leading-relaxed">{description}</p>
+              <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>{description}</p>
             </motion.div>
           ))}
         </div>

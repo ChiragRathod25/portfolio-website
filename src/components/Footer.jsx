@@ -11,7 +11,7 @@ function Footer() {
       className="relative border-t"
       style={{
         backgroundColor: "var(--bg-secondary)",
-        borderColor: "rgba(255,255,255,0.06)",
+        borderColor: "var(--border-subtle)",
       }}
     >
       {/* Gradient Line at top */}
@@ -24,31 +24,32 @@ function Footer() {
             <Link to="/" className="font-space text-xl font-bold gradient-text mb-3 inline-block">
               Chirag Rathod
             </Link>
-            <p className="text-sm text-slate-500 mb-4 leading-relaxed">
-              Full Stack Developer & ML Engineer building scalable digital
+            <p className="text-sm mb-4 leading-relaxed" style={{ color: "var(--text-muted)" }}>
+              Full Stack Developer &amp; ML Engineer building scalable digital
               solutions with clean code and creative thinking.
             </p>
-            <div className="flex items-center gap-2 text-xs text-slate-600">
+            <div className="flex items-center gap-2 text-xs" style={{ color: "var(--text-muted)" }}>
               <Code size={14} className="text-indigo-500" />
-              Built with React, Tailwind & Vite
+              Built with React, Tailwind &apos; Vite
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-sm font-semibold text-slate-300 mb-4">Quick Links</h4>
+            <h4 className="text-sm font-semibold mb-4" style={{ color: "var(--text-primary)" }}>Quick Links</h4>
             <div className="flex flex-col gap-2">
               {[
-                { label: "About", to: "/#about" },
-                { label: "Skills", to: "/#skills" },
-                { label: "Projects", to: "/#projects" },
-                { label: "Experience", to: "/#experience" },
+                { label: "Research", to: "/research" },
+                { label: "Projects", to: "/projects" },
+                { label: "Experience", to: "/experience" },
+                { label: "Skills", to: "/skills" },
                 { label: "Contact", to: "/contact" },
               ].map(({ label, to }) => (
                 <Link
                   key={label}
                   to={to}
-                  className="text-sm text-slate-500 hover:text-indigo-400 transition-colors w-fit"
+                  className="text-sm w-fit hover:text-indigo-400 transition-colors"
+                  style={{ color: "var(--text-muted)" }}
                 >
                   {label}
                 </Link>
@@ -58,10 +59,11 @@ function Footer() {
 
           {/* Contact & Social */}
           <div>
-            <h4 className="text-sm font-semibold text-slate-300 mb-4">Let's Connect</h4>
+            <h4 className="text-sm font-semibold mb-4" style={{ color: "var(--text-primary)" }}>Let's Connect</h4>
             <a
               href="mailto:chiragrathod.dev@gmail.com"
-              className="flex items-center gap-2 text-sm text-slate-500 hover:text-indigo-400 transition-colors mb-5"
+              className="flex items-center gap-2 text-sm mb-5 hover:text-indigo-400 transition-colors"
+              style={{ color: "var(--text-muted)" }}
             >
               <Mail size={14} />
               chiragrathod.dev@gmail.com
@@ -72,15 +74,16 @@ function Footer() {
 
         {/* Bottom bar */}
         <div
-          className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-6 border-t"
-          style={{ borderColor: "rgba(255,255,255,0.06)" }}
+          className="footer-divider flex flex-col sm:flex-row justify-between items-center gap-4 pt-6 border-t"
+          style={{ borderColor: "var(--border-subtle)" }}
         >
-          <p className="text-xs text-slate-600">
+          <p className="text-xs" style={{ color: "var(--text-muted)" }}>
             © {new Date().getFullYear()} Chirag Rathod · All rights reserved
           </p>
           <button
             onClick={scrollToTop}
-            className="w-9 h-9 glass rounded-full flex items-center justify-center text-slate-500 hover:text-indigo-400 hover:border-indigo-500/50 transition-all"
+            className="w-9 h-9 glass rounded-full flex items-center justify-center hover:text-indigo-400 hover:border-indigo-500/50 transition-all"
+            style={{ color: "var(--text-muted)" }}
             aria-label="Scroll to top"
           >
             <ArrowUp size={16} />

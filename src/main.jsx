@@ -4,8 +4,15 @@ import "./index.css";
 import App from "./App.jsx";
 import { Contact, Home } from "./Pages/index.js";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ThemeProvider } from "./context/ThemeContext.jsx";
 
-// Project detail pages
+// Top-level pages
+import ResearchPage from "./Pages/ResearchPage.jsx";
+import ProjectsPage from "./Pages/ProjectsPage.jsx";
+import ExperiencePage from "./Pages/ExperiencePage.jsx";
+import SkillsPage from "./Pages/SkillsPage.jsx";
+
+// Individual project detail pages
 import MoneyMonkPage from "./Pages/projects/MoneyMonkPage.jsx";
 import SmartDietPage from "./Pages/projects/SmartDietPage.jsx";
 import YouTubeBackendPage from "./Pages/projects/YouTubeBackendPage.jsx";
@@ -21,9 +28,13 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
-      { path: "/", element: <Home /> },
+      { index: true, element: <Home /> },
+      { path: "research", element: <ResearchPage /> },
+      { path: "projects", element: <ProjectsPage /> },
+      { path: "experience", element: <ExperiencePage /> },
+      { path: "skills", element: <SkillsPage /> },
       { path: "contact", element: <Contact /> },
-      // Project detail pages
+      // Individual project pages
       { path: "projects/money-monk", element: <MoneyMonkPage /> },
       { path: "projects/smart-diet", element: <SmartDietPage /> },
       { path: "projects/youtube-backend", element: <YouTubeBackendPage /> },
@@ -39,6 +50,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ThemeProvider>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </StrictMode>
 );

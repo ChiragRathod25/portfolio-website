@@ -51,7 +51,7 @@ export default function Education() {
             Education
           </h2>
           <div className="section-divider mb-4" />
-          <p className="text-slate-400 max-w-xl mx-auto">
+          <p className="max-w-xl mx-auto" style={{ color: "var(--text-secondary)" }}>
             The academic foundation behind the code.
           </p>
         </motion.div>
@@ -78,17 +78,17 @@ export default function Education() {
                       {edu.grade}
                     </span>
                   </div>
-                  <h3 className="text-xl font-space font-semibold text-white mt-2">
+                  <h3 className="text-xl font-space font-semibold mt-2" style={{ color: "var(--text-primary)" }}>
                     {edu.degree}
                   </h3>
-                  <p className="text-sm text-slate-400 mt-0.5">{edu.institution}</p>
+                  <p className="text-sm mt-0.5" style={{ color: "var(--text-secondary)" }}>{edu.institution}</p>
                 </div>
               </div>
 
               {/* Highlights */}
               <ul className="space-y-2">
                 {edu.highlights.map((point, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-sm text-slate-400">
+                  <li key={idx} className="flex items-start gap-2 text-sm" style={{ color: "var(--text-secondary)" }}>
                     <span className="mt-1 w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0" />
                     {point}
                   </li>

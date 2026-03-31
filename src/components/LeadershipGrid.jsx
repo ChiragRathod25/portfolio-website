@@ -57,7 +57,7 @@ function LeadershipGrid() {
             Leadership & Volunteering
           </h2>
           <div className="section-divider mb-4" />
-          <p className="text-slate-400 max-w-xl mx-auto">
+          <p className="max-w-xl mx-auto" style={{ color: "var(--text-secondary)" }}>
             Beyond the code — building communities, leading teams, and giving back.
           </p>
         </motion.div>
@@ -77,12 +77,12 @@ function LeadershipGrid() {
                   <Icon size={22} />
                 </div>
                 <div>
-                  <h3 className="font-space font-semibold text-white">{title}</h3>
-                  <p className="text-xs text-slate-400">{subtitle}</p>
-                  <p className="text-xs text-slate-500 italic mt-0.5">{date}</p>
+                  <h3 className="font-space font-semibold" style={{ color: "var(--text-primary)" }}>{title}</h3>
+                  <p className="text-xs" style={{ color: "var(--text-secondary)" }}>{subtitle}</p>
+                  <p className="text-xs italic mt-0.5" style={{ color: "var(--text-muted)" }}>{date}</p>
                 </div>
               </div>
-              <p className="text-sm text-slate-400 leading-relaxed">{description}</p>
+              <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>{description}</p>
             </motion.div>
           ))}
         </div>
