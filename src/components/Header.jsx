@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { BuyMeCoffeeBtn } from "./index.js";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,10 +14,12 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    setMenuOpen(false); // Close menu on route change
+    setMenuOpen(false);
   }, [location.pathname]);
 
   const navLinks = [
+    { name: "About", to: "/#about" },
+    { name: "Skills", to: "/#skills" },
     { name: "Projects", to: "/#projects" },
     { name: "Experience", to: "/#experience" },
     { name: "Contact", to: "/contact" },
@@ -26,86 +27,102 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white/90 shadow-md backdrop-blur-md"
-          : "bg-transparent backdrop-blur-sm"
+          ? "glass shadow-2xl shadow-black/50"
+          : "bg-transparent"
       }`}
     >
-      <div className="max-w-[1300px] mx-auto px-4 sm:px-6 md:px-8 py-3 md:py-4 flex justify-between items-center">
-        {/* === Logo === */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-4 flex justify-between items-center">
+        {/* Logo */}
         <Link
           to="/"
-          className="text-2xl font-extrabold text-blue-700 hover:text-blue-900 transition-all"
+          className="font-space text-xl font-bold gradient-text hover:scale-105 transition-transform"
         >
           Chirag Rathod
         </Link>
 
-        {/* === Desktop Nav === */}
-        <nav className="hidden md:flex items-center space-x-6 lg:space-x-10">
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-8">
           {navLinks.map(({ name, to }) => (
             <Link
               key={name}
               to={to}
-              className="text-gray-700 hover:text-blue-600 transition font-medium"
+              className="text-sm font-medium text-slate-400 hover:text-white transition-colors duration-200 relative group"
             >
               {name}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-cyan-400 group-hover:w-full transition-all duration-300" />
             </Link>
           ))}
 
-          <Link
-            to="/Chirag_Rathod_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-700 transition-all"
-          >
-            Resume
-          </Link>
-
-          <div className="ml-2">
-            <BuyMeCoffeeBtn />
+          {/* Resume Dropdown */}
+          <div className="relative group">
+            <button className="btn-primary text-sm py-2 px-5">
+              Resume ↓
+            </button>
+            <div className="absolute right-0 top-full mt-2 w-52 glass rounded-xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-2xl shadow-black/50">
+              <a
+                href="/Chirag_Rathod_Resume_Short.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+              >
+                📄 Short Version
+              </a>
+              <div className="border-t border-white/5" />
+              <a
+                href="/Chirag_Rathod_Resume_Full.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
+              >
+                📋 Full Version
+              </a>
+            </div>
           </div>
         </nav>
 
-        {/* === Mobile Menu Icon === */}
+        {/* Mobile Menu Toggle */}
         <button
-          className={`md:hidden text-blue-700 transition-all duration-300 ease-in-out transform ${
-            menuOpen
-              ? "rotate-90 scale-110 opacity-80"
-              : "rotate-0 scale-100 opacity-100"
-          }`}
+          className="md:hidden text-slate-300 hover:text-white transition-colors"
           onClick={() => setMenuOpen((prev) => !prev)}
           aria-label="Toggle Menu"
         >
-          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+          {menuOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
-      {/* === Mobile Menu === */}
+      {/* Mobile Menu */}
       {menuOpen && (
-        <nav className="md:hidden bg-white border-t border-gray-200 shadow-md">
-          <div className="flex flex-col gap-4 px-6 py-6 text-gray-700 font-medium">
+        <nav className="md:hidden glass border-t border-white/5 shadow-2xl">
+          <div className="flex flex-col gap-1 px-6 py-4">
             {navLinks.map(({ name, to }) => (
               <Link
                 onClick={() => setMenuOpen(false)}
                 key={name}
                 to={to}
-                className="hover:text-blue-600 transition"
+                className="py-3 px-4 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all font-medium"
               >
                 {name}
               </Link>
             ))}
-            <Link
-              to="/Chirag_Rathod_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 bg-blue-600 text-white text-center px-4 py-2 rounded-md hover:bg-blue-700 transition"
-            >
-              Resume
-            </Link>
-
-            <div className="mt-2">
-              <BuyMeCoffeeBtn />
+            <div className="border-t border-white/5 mt-2 pt-3 flex flex-col gap-2">
+              <a
+                href="/Chirag_Rathod_Resume_Short.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-2 px-4 text-center text-sm text-slate-300 border border-white/10 rounded-lg hover:border-indigo-500/50 hover:text-white transition-all"
+              >
+                📄 Short Resume
+              </a>
+              <a
+                href="/Chirag_Rathod_Resume_Full.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-2 px-4 text-center text-sm btn-primary"
+              >
+                📋 Full Resume
+              </a>
             </div>
           </div>
         </nav>

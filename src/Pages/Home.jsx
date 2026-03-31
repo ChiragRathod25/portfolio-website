@@ -1,27 +1,24 @@
 import React from "react";
 import {
   Hero,
-  Navbar,
+  Skills,
   Projects,
   Experience,
   Education,
   AchievementsGrid,
   LeadershipGrid,
-  
 } from "../components/index.js";
 
 function Home() {
   return (
     <>
-      {/* <Navbar /> */}
       <Hero />
-
+      <Skills />
       <Projects />
       <Experience />
       <Education />
       <AchievementsGrid />
       <LeadershipGrid />
-     
     </>
   );
 }

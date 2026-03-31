@@ -1,57 +1,94 @@
-import React from 'react'
-import { Star, Users, UserCheck } from 'lucide-react'
+import React from "react";
+import { motion } from "framer-motion";
+import { Star, Users, Heart } from "lucide-react";
+
+const leadership = [
+  {
+    title: "Vice President",
+    subtitle: "CodeChef College Chapter",
+    icon: Star,
+    date: "Nov 2024 – Present",
+    iconColor: "text-violet-400",
+    bgColor: "from-violet-500/20 to-purple-500/10",
+    border: "border-violet-500/30",
+    description:
+      "Promoted competitive programming through events and initiatives. Led the chapter to double its participation rate and organized national-level coding contests.",
+  },
+  {
+    title: "Event Manager",
+    subtitle: "Microsoft Learn Student Club",
+    icon: Users,
+    date: "Dec 2023 – Aug 2024",
+    iconColor: "text-blue-400",
+    bgColor: "from-blue-500/20 to-sky-500/10",
+    border: "border-blue-500/30",
+    description:
+      "Led organization of coding competitions and full-stack development workshops, impacting 200+ participants and improving technical skill development across the college.",
+  },
+  {
+    title: "Community Volunteer",
+    subtitle: "BAPS Bal Mandal",
+    icon: Heart,
+    date: "Aug 2018 – Present",
+    iconColor: "text-pink-400",
+    bgColor: "from-pink-500/20 to-rose-500/10",
+    border: "border-pink-500/30",
+    description:
+      "Led community events including Bal Parayan and de-addiction campaigns, creating positive impact for 1000+ participants. Demonstrates long-term commitment to social service.",
+  },
+];
 
 function LeadershipGrid() {
-  const leadership = [
-    {
-      title: 'Vice President',
-      subtitle: 'CodeChef College Chapter',
-      icon: Star,
-      date: 'Nov 2024 – Present',
-      description:
-        'Promoted competitive programming through events and initiatives, doubling club participation.',
-    },
-    {
-      title: 'Event Manager',
-      subtitle: 'Microsoft Learn Student Club',
-      icon: Users,
-      date: 'Dec 2023 – Aug 2024',
-      description:
-        'Led organization of coding competitions and workshops, improving engagement and skill development.',
-    },
-    {
-      title: 'Volunteer',
-      subtitle: 'BAPS Bal Mandal',
-      icon: UserCheck,
-      date: 'Aug 2018 – Present',
-      description:
-        'Led community events such as Bal Parayan and de-addiction campaigns impacting over 1000 participants.',
-    },
-  ]
-
   return (
-    <div className="bg-blue-50 px-6 md:px-24 py-6">
-      <h2   className="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-800">Leadership & Volunteering</h2>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {leadership.map(({ title, subtitle, icon: Icon, date, description }, i) => (
-          <div
-            key={i}
-            className="rounded-2xl border border-gray-200 bg-white shadow-md p-6 hover:shadow-xl transition-all"
-          >
-            <div className="flex items-center gap-3 mb-2">
-              <Icon className="text-blue-600" size={24} />
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
-                <p className="text-sm text-gray-600">{subtitle}</p>
+    <section
+      className="py-24 px-6 md:px-16"
+      style={{ backgroundColor: "var(--bg-primary)" }}
+    >
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="font-space text-4xl md:text-5xl font-bold gradient-text mb-4">
+            Leadership & Volunteering
+          </h2>
+          <div className="section-divider mb-4" />
+          <p className="text-slate-400 max-w-xl mx-auto">
+            Beyond the code — building communities, leading teams, and giving back.
+          </p>
+        </motion.div>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {leadership.map(({ title, subtitle, icon: Icon, date, iconColor, bgColor, border, description }, i) => (
+            <motion.div
+              key={i}
+              className={`glass glass-hover rounded-2xl p-6 bg-gradient-to-br ${bgColor} border ${border}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+            >
+              <div className="flex items-start gap-4 mb-3">
+                <div className={`p-3 glass rounded-xl ${iconColor}`}>
+                  <Icon size={22} />
+                </div>
+                <div>
+                  <h3 className="font-space font-semibold text-white">{title}</h3>
+                  <p className="text-xs text-slate-400">{subtitle}</p>
+                  <p className="text-xs text-slate-500 italic mt-0.5">{date}</p>
+                </div>
               </div>
-            </div>
-            <p className="text-sm text-gray-500 italic mb-2">{date}</p>
-            <p className="text-sm text-gray-700">{description}</p>
-          </div>
-        ))}
+              <p className="text-sm text-slate-400 leading-relaxed">{description}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
-  )
+    </section>
+  );
 }
 
-export default LeadershipGrid
+export default LeadershipGrid;

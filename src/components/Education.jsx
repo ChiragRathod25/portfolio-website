@@ -1,58 +1,103 @@
-export default function Education() {
-  const educationData = [
-    {
-      period: "June 2022 – Present",
-      degree: "B.E. in Computer Engineering",
-      institution: "Birla Vishvakarma Mahavidyalaya (BVM), Vallabh Vidyanagar",
-      highlights: [
-        "Current CGPA: 8.9",
-        "Core coursework: Data Structures & Algorithms, Database Systems, Operating Systems, Computer Networks",
-        "Practical exposure to web development, machine learning, and cloud computing",
-        "Collaborated on team projects using Agile methodologies",
-        "Active participation in coding contests and technical workshops",
-      ],
-    },
-    {
-      period: "2020 – 2022",
-      degree: "Higher Secondary (Science Stream - PCM)",
-      institution: "BAPS Swaminarayan Vidyamandir, Anand",
-      highlights: [
-        "Percentage: 89%",
-        "Focused on Mathematics, Physics, and Chemistry",
-        "Engaged in leadership and cultural activities",
-      ],
-    },
-  ];
+import { motion } from "framer-motion";
 
+const educationData = [
+  {
+    period: "June 2022 – Present",
+    degree: "B.E. in Computer Engineering",
+    institution: "Birla Vishvakarma Mahavidyalaya (BVM), Vallabh Vidyanagar",
+    grade: "CGPA: 8.9",
+    emoji: "🎓",
+    color: "from-indigo-500/20 to-violet-500/20",
+    border: "border-indigo-500/30",
+    highlights: [
+      "Core coursework: DSA, Database Systems, OS, Computer Networks",
+      "Practical work in web development, ML & cloud computing",
+      "Collaborated on team projects using Agile methodologies",
+      "Active in coding contests and technical workshops",
+    ],
+  },
+  {
+    period: "2020 – 2022",
+    degree: "Higher Secondary (Science – PCM)",
+    institution: "BAPS Swaminarayan Vidyamandir, Anand",
+    grade: "89%",
+    emoji: "📚",
+    color: "from-cyan-500/20 to-blue-500/20",
+    border: "border-cyan-500/30",
+    highlights: [
+      "Focused on Mathematics, Physics, and Chemistry",
+      "Engaged in leadership and cultural activities",
+      "Strong analytical foundation for engineering studies",
+    ],
+  },
+];
+
+export default function Education() {
   return (
-    <div className="bg-blue-50 px-6 md:px-24 py-6  font-poppins text-gray-900">
-      <h2
-        className="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-800"
-      >
-        Education
-      </h2>
-      
-      <div className="grid gap-8 md:grid-cols-2">
-        {educationData.map((edu, index) => (
-          <div
-            key={index}
-            className="bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition duration-300 p-6"
-          >
-            <p className="text-sm text-blue-600 font-medium mb-1">
-              {edu.period}
-            </p>
-            <h3 className="text-xl font-semibold text-gray-800">
-              {edu.degree}
-            </h3>
-            <h4 className="text-md text-gray-600 mb-3">{edu.institution}</h4>
-            <ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
-              {edu.highlights.map((point, idx) => (
-                <li key={idx}>{point}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+    <section
+      className="py-24 px-6 md:px-16"
+      style={{ backgroundColor: "var(--bg-primary)" }}
+    >
+      <div className="max-w-6xl mx-auto">
+        {/* Section Header */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="font-space text-4xl md:text-5xl font-bold gradient-text mb-4">
+            Education
+          </h2>
+          <div className="section-divider mb-4" />
+          <p className="text-slate-400 max-w-xl mx-auto">
+            The academic foundation behind the code.
+          </p>
+        </motion.div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {educationData.map((edu, index) => (
+            <motion.div
+              key={index}
+              className={`glass glass-hover rounded-2xl p-7 bg-gradient-to-br ${edu.color} border ${edu.border}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              {/* Header */}
+              <div className="flex items-start gap-4 mb-5">
+                <span className="text-4xl">{edu.emoji}</span>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between flex-wrap gap-2">
+                    <p className="text-xs font-medium text-indigo-400 glass px-3 py-1 rounded-full">
+                      {edu.period}
+                    </p>
+                    <span className="text-sm font-bold gradient-text">
+                      {edu.grade}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-space font-semibold text-white mt-2">
+                    {edu.degree}
+                  </h3>
+                  <p className="text-sm text-slate-400 mt-0.5">{edu.institution}</p>
+                </div>
+              </div>
+
+              {/* Highlights */}
+              <ul className="space-y-2">
+                {edu.highlights.map((point, idx) => (
+                  <li key={idx} className="flex items-start gap-2 text-sm text-slate-400">
+                    <span className="mt-1 w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0" />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

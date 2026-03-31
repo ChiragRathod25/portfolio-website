@@ -1,33 +1,57 @@
+import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 
 const TimelineItem = ({ role, company, time, description, tech }) => (
-  <div className="relative pl-10 border-l border-blue-200 group hover:border-blue-400 transition-all">
-    <div className="absolute -left-3 top-1.5 w-6 h-6 bg-gradient-to-tr from-blue-500 to-cyan-400 text-white rounded-full flex items-center justify-center shadow-md">
-      <Briefcase size={14} />
+  <motion.div
+    className="relative pl-12 pb-10"
+    initial={{ opacity: 0, x: -20 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5 }}
+  >
+    {/* Vertical Line */}
+    <div className="absolute left-4 top-6 bottom-0 w-px bg-gradient-to-b from-indigo-500/60 to-transparent" />
+
+    {/* Dot */}
+    <div className="absolute left-0 top-1.5 w-8 h-8 rounded-full flex items-center justify-center"
+      style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)" }}
+    >
+      <div className="absolute inset-0 rounded-full opacity-40 blur-sm"
+        style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)" }}
+      />
+      <Briefcase size={14} className="text-white relative z-10" />
     </div>
-    <div className="bg-white shadow-sm rounded-xl p-6 mt-2 transition-transform duration-300 group-hover:scale-[1.02]">
-      <div className="flex items-start justify-between">
+
+    {/* Card */}
+    <div className="glass glass-hover rounded-2xl p-6 ml-2 group">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-1">
         <div>
-          <h3 className="text-lg font-semibold text-gray-900">{role}</h3>
-          <p className="text-sm text-gray-600">{company}</p>
+          <h3 className="font-space font-semibold text-white text-lg group-hover:text-indigo-300 transition-colors">
+            {role}
+          </h3>
+          <p className="text-sm text-slate-400">{company}</p>
         </div>
-        <p className="text-xs italic text-gray-500">{time}</p>
+        <span className="text-xs text-indigo-400 font-medium glass px-3 py-1 rounded-full whitespace-nowrap h-fit">
+          {time}
+        </span>
       </div>
-      <p className="mt-4 whitespace-pre-line text-sm text-gray-700">
+
+      {/* Description */}
+      <p className="mt-3 text-sm text-slate-400 whitespace-pre-line leading-relaxed">
         {description}
       </p>
-      <div className="mt-4 flex flex-wrap gap-2">
-        {tech.map((item, i) => (
-          <span
-            key={i}
-            className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full"
-          >
-            {item}
-          </span>
-        ))}
-      </div>
+
+      {/* Tech Pills */}
+      {tech && tech.length > 0 && (
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          {tech.map((item, i) => (
+            <span key={i} className="tech-pill">{item}</span>
+          ))}
+        </div>
+      )}
     </div>
-  </div>
+  </motion.div>
 );
 
 export default TimelineItem;

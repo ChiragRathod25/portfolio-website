@@ -1,33 +1,67 @@
 import React from "react";
-import { Send } from "lucide-react";
+import { motion } from "framer-motion";
+import { Send, Mail, MapPin, Github, Linkedin } from "lucide-react";
 import { SocialLinks } from "../components/index.js";
 import { useForm, ValidationError } from "@formspree/react";
 
+const contactInfo = [
+  {
+    icon: Mail,
+    label: "Email",
+    value: "chiragrathod.dev@gmail.com",
+    href: "mailto:chiragrathod.dev@gmail.com",
+  },
+  {
+    icon: MapPin,
+    label: "Location",
+    value: "Vallabh Vidyanagar, Gujarat, India",
+    href: null,
+  },
+  {
+    icon: Github,
+    label: "GitHub",
+    value: "github.com/ChiragRathod25",
+    href: "https://github.com/ChiragRathod25",
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "linkedin.com/in/chiragrathod25",
+    href: "https://www.linkedin.com/in/chiragrathod25",
+  },
+];
+
 function Contact() {
   const [state, handleSubmit, reset] = useForm("xblylyld");
+
   if (state.succeeded) {
     return (
-      <section className="bg-white px-6 py-16 md:px-24 lg:px-32">
-        <div className="max-w-xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-            Thank You!
+      <section
+        className="min-h-screen flex items-center justify-center px-6 py-24"
+        style={{ backgroundColor: "var(--bg-primary)" }}
+      >
+        <motion.div
+          className="glass rounded-3xl p-12 text-center max-w-md mx-auto"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+        >
+          <div className="text-6xl mb-6">🎉</div>
+          <h2 className="font-space text-3xl font-bold gradient-text mb-3">
+            Message Sent!
           </h2>
-          <p className="text-gray-600 text-base md:text-lg mb-6">
-            Your message has been sent successfully. I will get back to you
-            soon!
+          <p className="text-slate-400 mb-8">
+            Thanks for reaching out! I'll get back to you shortly.
           </p>
-        </div>
-        <div className="flex justify-center mb-10">
-          <SocialLinks size={26} className="gap-6" />
-        </div>
-        <div className="text-center">
+          <div className="flex justify-center mb-8">
+            <SocialLinks size={24} />
+          </div>
           <button
             onClick={() => reset()}
-            className="bg-blue-600 text-white font-medium px-6 py-2 rounded-lg hover:bg-blue-700 transition-all"
+            className="btn-primary"
           >
-            Send Another Message
+            Send Another
           </button>
-        </div>
+        </motion.div>
       </section>
     );
   }
@@ -35,90 +69,187 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="bg-white px-6 py-16 md:px-24 lg:px-32 transition-all"
+      className="min-h-screen py-24 px-6 md:px-16"
+      style={{ backgroundColor: "var(--bg-primary)" }}
     >
-      <div
-        className="
-        max-w-xl mx-auto text-center flex flex-col items-center 
-        "
-      >
-        {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-          Let’s Connect
-        </h2>
+      {/* Dot Grid */}
+      <div className="dot-grid fixed inset-0 opacity-20 pointer-events-none" />
 
-        <p className="text-gray-600 text-base md:text-lg mb-6 max-w-2xl mx-auto">
-          Whether you have an idea, a project, or just want to say hello — feel
-          free to reach out!
-        </p>
-
-        {/* Social Links */}
-        <div className="flex justify-center mb-10">
-          <SocialLinks size={26} className="gap-6" />
-        </div>
-
-        {/* Contact Form */}
-        <form
-          className="grid gap-6 text-left w-full max-w-2xl mx-auto"
-          onSubmit={handleSubmit}
+      <div className="relative z-10 max-w-6xl mx-auto">
+        {/* Header */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
         >
-          <div>
-            <label className="block mb-1 font-medium text-gray-700">
-              Your Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              required
-              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none"
-              placeholder="Chirag Rathod"
-            />
-          </div>
+          <h1 className="font-space text-4xl md:text-5xl font-bold gradient-text mb-4">
+            Let's Connect
+          </h1>
+          <div className="section-divider mb-4" />
+          <p className="text-slate-400 max-w-xl mx-auto text-lg">
+            Whether you have an idea, a project, or just want to say hello — feel free to reach out!
+          </p>
+        </motion.div>
 
-          <div>
-            <label className="block mb-1 font-medium text-gray-700">
-              Your Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              required
-              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none"
-              placeholder="you@example.com"
-            />
-          </div>
-
-          <div>
-            <label className="block mb-1 font-medium text-gray-700">
-              Your Message
-            </label>
-            <textarea
-              name="message"
-              rows="5"
-              required
-              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none"
-              placeholder="Let's build something awesome together!"
-            ></textarea>
-          </div>
-
-          <button
-            type="submit"
-            className="flex items-center gap-2 bg-blue-600 text-white font-medium px-6 py-2 rounded-lg hover:bg-blue-700 transition-all w-fit"
+        <div className="grid md:grid-cols-2 gap-10">
+          {/* ===== Left: Info Panel ===== */}
+          <motion.div
+            className="flex flex-col gap-6"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Send size={18} />
-            Send Message
-          </button>
-        </form>
+            <div className="glass rounded-2xl p-7">
+              <h3 className="font-space text-xl font-semibold text-white mb-2">
+                Get in touch
+              </h3>
+              <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                I'm currently open to internship opportunities, collaborations,
+                and interesting projects. My inbox is always open — whether it's
+                a quick question or a detailed project discussion.
+              </p>
 
-        {/* Optional Email */}
-        <div className="mt-10 text-gray-500 text-sm">
-          Prefer direct email? Reach out at{" "}
-          <a
-            href="mailto:chiragrathod.dev@gmail.com"
-            className="text-blue-600 underline underline-offset-2"
+              <div className="space-y-4">
+                {contactInfo.map(({ icon: Icon, label, value, href }) => (
+                  <div key={label} className="flex items-center gap-4">
+                    <div className="p-2.5 glass rounded-xl text-indigo-400">
+                      <Icon size={18} />
+                    </div>
+                    <div>
+                      <p className="text-xs text-slate-500 mb-0.5">{label}</p>
+                      {href ? (
+                        <a
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-slate-300 hover:text-indigo-300 transition-colors"
+                        >
+                          {value}
+                        </a>
+                      ) : (
+                        <p className="text-sm text-slate-300">{value}</p>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="glass rounded-2xl p-6">
+              <p className="text-sm text-slate-500 mb-4 font-medium">Find me on</p>
+              <SocialLinks size={24} />
+            </div>
+
+            {/* Resume Download */}
+            <div className="glass rounded-2xl p-6">
+              <p className="text-sm text-slate-500 mb-4 font-medium">Download Resume</p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href="/Chirag_Rathod_Resume_Short.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-outline text-sm py-2.5 flex-1 justify-center"
+                >
+                  📄 Short Version
+                </a>
+                <a
+                  href="/Chirag_Rathod_Resume_Full.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary text-sm py-2.5 flex-1 justify-center"
+                >
+                  📋 Full Version
+                </a>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* ===== Right: Contact Form ===== */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
-            chiragrathod.dev@gmail.com
-          </a>
+            <form
+              onSubmit={handleSubmit}
+              className="glass rounded-2xl p-7 flex flex-col gap-5"
+            >
+              <h3 className="font-space text-xl font-semibold text-white">
+                Send a message
+              </h3>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-400 mb-2">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="Chirag Rathod"
+                  className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-slate-600 transition-all outline-none focus:ring-2"
+                  style={{
+                    background: "rgba(255,255,255,0.05)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                    focusRingColor: "#6366f1",
+                  }}
+                  onFocus={(e) => { e.target.style.borderColor = "#6366f1"; }}
+                  onBlur={(e) => { e.target.style.borderColor = "rgba(255,255,255,0.08)"; }}
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-400 mb-2">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="you@example.com"
+                  className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-slate-600 transition-all outline-none"
+                  style={{
+                    background: "rgba(255,255,255,0.05)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                  }}
+                  onFocus={(e) => { e.target.style.borderColor = "#6366f1"; }}
+                  onBlur={(e) => { e.target.style.borderColor = "rgba(255,255,255,0.08)"; }}
+                />
+                <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-400 text-xs mt-1" />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-slate-400 mb-2">
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  rows="5"
+                  required
+                  placeholder="Let's build something awesome together!"
+                  className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-slate-600 transition-all outline-none resize-none"
+                  style={{
+                    background: "rgba(255,255,255,0.05)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                  }}
+                  onFocus={(e) => { e.target.style.borderColor = "#6366f1"; }}
+                  onBlur={(e) => { e.target.style.borderColor = "rgba(255,255,255,0.08)"; }}
+                />
+                <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-400 text-xs mt-1" />
+              </div>
+
+              <button
+                type="submit"
+                disabled={state.submitting}
+                className="btn-primary justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <Send size={16} />
+                {state.submitting ? "Sending..." : "Send Message"}
+              </button>
+            </form>
+          </motion.div>
         </div>
       </div>
     </section>

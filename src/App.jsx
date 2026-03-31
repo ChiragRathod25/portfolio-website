@@ -4,7 +4,6 @@ import {
   Footer,
   ScrollToHashElement,
   ScrollToTop,
-  BuyMeCoffeeBtn,
 } from "./components/index.js";
 import "./App.css";
 import { Outlet } from "react-router-dom";
@@ -14,15 +13,14 @@ function App() {
     <>
       <ScrollToHashElement />
       <ScrollToTop />
-      <div className="bg-blue-50 min-h-screen min-h-screen font-poppins text-gray-900">
+      <div
+        style={{ backgroundColor: "var(--bg-primary)" }}
+        className="min-h-screen text-slate-100"
+      >
         <Header />
-
-        <main className="container mx-auto px-4 sm:px-6 md:px-8 py-8 ">
+        <main>
           <Outlet />
         </main>
-        <div className="flex justify-center items-center ">
-          <BuyMeCoffeeBtn />
-        </div>
         <Footer />
       </div>
     </>

@@ -1,38 +1,94 @@
-import React from 'react'
-import { Github, Linkedin, Mail, Code } from 'lucide-react'
-import {SocialLinks} from '../components/index.js'
+import React from "react";
+import { Code, Mail, ArrowUp } from "lucide-react";
+import { SocialLinks } from "../components/index.js";
+import { Link } from "react-router-dom";
+
 function Footer() {
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
   return (
-    <footer className="bg-blue-100 text-gray-700 px-6 py-10 mt-12">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-        {/* Left: Signature and Tech */}
-        <div>
-          <h3 className="text-xl font-semibold text-blue-900">Chirag Rathod</h3>
-          <p className="text-sm mt-1 text-gray-600">
-            Full Stack Developer · Lifelong Learner · Creative Thinker
+    <footer
+      className="relative border-t"
+      style={{
+        backgroundColor: "var(--bg-secondary)",
+        borderColor: "rgba(255,255,255,0.06)",
+      }}
+    >
+      {/* Gradient Line at top */}
+      <div className="h-px w-full" style={{ background: "var(--gradient-primary)" }} />
+
+      <div className="max-w-7xl mx-auto px-6 md:px-16 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+          {/* Brand */}
+          <div>
+            <Link to="/" className="font-space text-xl font-bold gradient-text mb-3 inline-block">
+              Chirag Rathod
+            </Link>
+            <p className="text-sm text-slate-500 mb-4 leading-relaxed">
+              Full Stack Developer & ML Engineer building scalable digital
+              solutions with clean code and creative thinking.
+            </p>
+            <div className="flex items-center gap-2 text-xs text-slate-600">
+              <Code size={14} className="text-indigo-500" />
+              Built with React, Tailwind & Vite
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-sm font-semibold text-slate-300 mb-4">Quick Links</h4>
+            <div className="flex flex-col gap-2">
+              {[
+                { label: "About", to: "/#about" },
+                { label: "Skills", to: "/#skills" },
+                { label: "Projects", to: "/#projects" },
+                { label: "Experience", to: "/#experience" },
+                { label: "Contact", to: "/contact" },
+              ].map(({ label, to }) => (
+                <Link
+                  key={label}
+                  to={to}
+                  className="text-sm text-slate-500 hover:text-indigo-400 transition-colors w-fit"
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact & Social */}
+          <div>
+            <h4 className="text-sm font-semibold text-slate-300 mb-4">Let's Connect</h4>
+            <a
+              href="mailto:chiragrathod.dev@gmail.com"
+              className="flex items-center gap-2 text-sm text-slate-500 hover:text-indigo-400 transition-colors mb-5"
+            >
+              <Mail size={14} />
+              chiragrathod.dev@gmail.com
+            </a>
+            <SocialLinks size={20} />
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div
+          className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-6 border-t"
+          style={{ borderColor: "rgba(255,255,255,0.06)" }}
+        >
+          <p className="text-xs text-slate-600">
+            © {new Date().getFullYear()} Chirag Rathod · All rights reserved
           </p>
-          <div className="flex items-center gap-2 mt-3 text-sm text-gray-500">
-            <Code size={16} className="text-blue-700" />
-            <span>Built with React, Tailwind, and Vite</span>
-          </div>
+          <button
+            onClick={scrollToTop}
+            className="w-9 h-9 glass rounded-full flex items-center justify-center text-slate-500 hover:text-indigo-400 hover:border-indigo-500/50 transition-all"
+            aria-label="Scroll to top"
+          >
+            <ArrowUp size={16} />
+          </button>
         </div>
-
-        {/* Right: Socials */}
-        <div className="flex flex-col gap-2">
-          <h4 className="text-sm font-semibold text-blue-800">Let’s Connect</h4>
-
-          <div className="flex items-center gap-4">
-            <SocialLinks size={26} className="gap-6" />
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom line */}
-      <div className="border-t border-blue-200 mt-8 pt-4 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} Chirag Rathod · All rights reserved
       </div>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
