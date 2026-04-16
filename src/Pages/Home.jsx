@@ -136,7 +136,7 @@ function Home() {
                 rel="noopener noreferrer"
                 className="btn-outline"
               >
-                <Download size={16} /> Download CV
+                <Download size={16} /> View Resume
               </a>
               <Link to="/contact" className="btn-outline">
                 Let's Connect <Send size={14} />

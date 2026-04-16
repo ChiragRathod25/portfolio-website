@@ -91,7 +91,7 @@ function Hero() {
               <ChevronDown size={18} />
             </Link>
 
-            {/* Download CV */}
+            {/* View Resume */}
             <a
               href="/Chirag_Rathod_CV.pdf"
               target="_blank"
@@ -99,7 +99,7 @@ function Hero() {
               className="btn-outline"
             >
               <Download size={18} />
-              Download CV
+              View Resume
             </a>
 
             <Link to="/contact" className="btn-outline">

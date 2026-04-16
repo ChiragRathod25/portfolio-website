@@ -86,14 +86,14 @@ export default function Header() {
             )}
           </button>
 
-          {/* Download CV */}
+          {/* View Resume */}
           <a
             href="/Chirag_Rathod_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary text-sm py-2 px-5"
           >
-            Download CV
+            View Resume
           </a>
         </nav>
 
@@ -143,7 +143,7 @@ export default function Header() {
                 rel="noopener noreferrer"
                 className="py-2 px-4 text-center text-sm btn-primary block"
               >
-                Download CV
+                View Resume
               </a>
             </div>
           </div>

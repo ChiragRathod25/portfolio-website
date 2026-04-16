@@ -150,14 +150,14 @@ function Contact() {
 
             {/* Resume Download */}
             <div className="glass rounded-2xl p-6">
-              <p className="text-sm mb-4 font-medium" style={{ color: "var(--text-muted)" }}>Download CV</p>
+              <p className="text-sm mb-4 font-medium" style={{ color: "var(--text-muted)" }}>View Resume</p>
               <a
                 href="/Chirag_Rathod_CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary text-sm py-2.5 w-full justify-center"
               >
-                Download CV
+                View Resume
               </a>
             </div>
           </motion.div>
