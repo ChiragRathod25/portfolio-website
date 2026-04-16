@@ -91,32 +91,16 @@ function Hero() {
               <ChevronDown size={18} />
             </Link>
 
-            {/* Resume Dropdown */}
-            <div className="relative group">
-              <button className="btn-outline">
-                <Download size={18} />
-                Download Resume
-              </button>
-              <div className="absolute left-0 top-full mt-2 w-52 glass rounded-xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-2xl shadow-black/50 z-20">
-                <a
-                  href="/Chirag_Rathod_Resume_Short.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
-                >
-                  📄 Short Version
-                </a>
-                <div className="border-t border-white/5" />
-                <a
-                  href="/Chirag_Rathod_Resume_Full.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
-                >
-                  📋 Full Version
-                </a>
-              </div>
-            </div>
+            {/* Download CV */}
+            <a
+              href="/Chirag_Rathod_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline"
+            >
+              <Download size={18} />
+              Download CV
+            </a>
 
             <Link to="/contact" className="btn-outline">
               Let's Connect

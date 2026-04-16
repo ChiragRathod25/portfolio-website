@@ -86,42 +86,15 @@ export default function Header() {
             )}
           </button>
 
-          {/* Resume Dropdown */}
-          <div className="relative group">
-            <button className="btn-primary text-sm py-2 px-5">
-              Resume ↓
-            </button>
-            <div
-              className="absolute right-0 top-full mt-2 w-52 rounded-xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-20"
-              style={{
-                backgroundColor: theme === "light" ? "rgba(240,244,255,0.92)" : "rgba(13,13,26,0.92)",
-                backdropFilter: "blur(20px)",
-                WebkitBackdropFilter: "blur(20px)",
-                border: "1px solid rgba(99,102,241,0.2)",
-                boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
-              }}
-            >
-              <a
-                href="/Chirag_Rathod_Resume_Short.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-3 text-sm hover:bg-white/5 transition-colors"
-                style={{ color: "var(--text-secondary)" }}
-              >
-                📄 Short Version
-              </a>
-              <div className="border-t" style={{ borderColor: "var(--border-subtle)" }} />
-              <a
-                href="/Chirag_Rathod_Resume_Full.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-3 text-sm hover:bg-white/5 transition-colors"
-                style={{ color: "var(--text-secondary)" }}
-              >
-                📋 Full Version
-              </a>
-            </div>
-          </div>
+          {/* Download CV */}
+          <a
+            href="/Chirag_Rathod_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary text-sm py-2 px-5"
+          >
+            Download CV
+          </a>
         </nav>
 
         {/* Mobile Controls */}
@@ -163,23 +136,14 @@ export default function Header() {
                 {name}
               </Link>
             ))}
-            <div className="border-t mt-2 pt-3 flex flex-col gap-2" style={{ borderColor: "var(--border-subtle)" }}>
+            <div className="border-t mt-2 pt-3" style={{ borderColor: "var(--border-subtle)" }}>
               <a
-                href="/Chirag_Rathod_Resume_Short.pdf"
+                href="/Chirag_Rathod_CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-2 px-4 text-center text-sm rounded-lg border hover:border-indigo-500/50 transition-all"
-                style={{ color: "var(--text-secondary)", borderColor: "var(--border-subtle)" }}
+                className="py-2 px-4 text-center text-sm btn-primary block"
               >
-                📄 Short Resume
-              </a>
-              <a
-                href="/Chirag_Rathod_Resume_Full.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="py-2 px-4 text-center text-sm btn-primary"
-              >
-                📋 Full Resume
+                Download CV
               </a>
             </div>
           </div>

@@ -150,25 +150,15 @@ function Contact() {
 
             {/* Resume Download */}
             <div className="glass rounded-2xl p-6">
-              <p className="text-sm mb-4 font-medium" style={{ color: "var(--text-muted)" }}>Download Resume</p>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href="/Chirag_Rathod_Resume_Short.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-outline text-sm py-2.5 flex-1 justify-center"
-                >
-                  📄 Short Version
-                </a>
-                <a
-                  href="/Chirag_Rathod_Resume_Full.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary text-sm py-2.5 flex-1 justify-center"
-                >
-                  📋 Full Version
-                </a>
-              </div>
+              <p className="text-sm mb-4 font-medium" style={{ color: "var(--text-muted)" }}>Download CV</p>
+              <a
+                href="/Chirag_Rathod_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary text-sm py-2.5 w-full justify-center"
+              >
+                Download CV
+              </a>
             </div>
           </motion.div>
 

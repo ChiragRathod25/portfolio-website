@@ -130,33 +130,14 @@ function Home() {
                 View Research
                 <FlaskConical size={16} />
               </Link>
-              <div className="relative group">
-                <button className="btn-outline">
-                  <Download size={16} /> Resume
-                </button>
-                <div
-                  className="absolute left-0 top-full mt-2 w-52 rounded-xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-20"
-                  style={{
-                    backgroundColor: "rgba(13,13,26,0.92)",
-                    backdropFilter: "blur(20px)",
-                    WebkitBackdropFilter: "blur(20px)",
-                    border: "1px solid rgba(99,102,241,0.2)",
-                    boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
-                  }}
-                >
-                  <a href="/Chirag_Rathod_Resume_Short.pdf" target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-3 text-sm hover:bg-white/5 transition-colors"
-                    style={{ color: "var(--text-secondary)" }}>
-                    📄 Short Version
-                  </a>
-                  <div className="border-t" style={{ borderColor: "var(--border-subtle)" }} />
-                  <a href="/Chirag_Rathod_Resume_Full.pdf" target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-3 text-sm hover:bg-white/5 transition-colors"
-                    style={{ color: "var(--text-secondary)" }}>
-                    📋 Full Version
-                  </a>
-                </div>
-              </div>
+              <a
+                href="/Chirag_Rathod_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline"
+              >
+                <Download size={16} /> Download CV
+              </a>
               <Link to="/contact" className="btn-outline">
                 Let's Connect <Send size={14} />
               </Link>
