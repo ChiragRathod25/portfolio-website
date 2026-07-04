@@ -40,6 +40,18 @@ const projects = [
     featured: true,
   },
   {
+    id: "apc-bal-mandal",
+    title: "APC Bal Mandal PWA",
+    description:
+      "Full-stack Progressive Web App (PWA) to digitize attendance and community workflows with secure RBAC using JWT. Features real-time notifications, dashboards, and media handling.",
+    image: null,
+    tech: ["React", "Node.js", "Express", "MongoDB", "PWA", "JWT"],
+    github: "https://github.com/ChiragRathod25",
+    live: null,
+    category: "web",
+    featured: true,
+  },
+  {
     id: "smart-diet",
     title: "SmartDiet Recommendation",
     description:

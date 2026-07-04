@@ -3,25 +3,25 @@ import { TimelineItem } from "./index.js";
 
 const experiences = [
   {
-    role: "React Developer Intern",
-    company: "Tech Elecon Private Limited — Anand, Gujarat",
-    time: "June 2025 – Present",
+    role: "React JS Intern",
+    company: "Tech Elecon Pvt. Ltd. — Anand, Gujarat",
+    time: "May 2025 – Jun 2025",
     description:
       "• Developed scalable, user-friendly web applications using ReactJS\n• Collaborated with design teams to implement pixel-perfect UI/UX designs\n• Optimized application performance through code splitting and lazy loading\n• Contributed to code reviews and built reusable component libraries for real-world projects",
     tech: ["React", "JavaScript", "HTML5", "CSS3", "Git"],
   },
   {
-    role: "ML & Data Science Intern",
-    company: "Industry Internship (Remote)",
-    time: "4 Months",
+    role: "Machine Learning Intern",
+    company: "Infinite Craze Games Pvt. Ltd. — Surat, Gujarat",
+    time: "Dec 2025 – May 2026",
     description:
       "• Developed data-driven solutions involving data preprocessing, exploratory analysis, and machine learning models for prediction tasks\n• Utilized Python (Pandas, NumPy, scikit-learn) to build end-to-end ML pipelines\n• Evaluated model performance using metrics such as accuracy, precision, recall, and RMSE\n• Gained practical experience in handling real-world datasets and deploying ML models",
     tech: ["Python", "Pandas", "NumPy", "scikit-learn", "ML", "Data Analysis"],
   },
   {
     role: "Full Stack Web Development Intern",
-    company: "DialogFlows — Edison, New Jersey (Remote)",
-    time: "June 2024",
+    company: "DialogFlows AI — Anand, Gujarat",
+    time: "May 2024 – Jun 2024",
     description:
       "• Developed web and mobile apps using ReactJS, ExpressJS, and NodeJS\n• Managed codebase with Git and GitHub for collaborative development\n• Designed and optimized MongoDB databases for performance and scalability",
     tech: ["React", "Node.js", "Express", "MongoDB", "Git"],

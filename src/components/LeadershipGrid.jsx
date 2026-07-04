@@ -5,9 +5,9 @@ import { Star, Users, Heart } from "lucide-react";
 const leadership = [
   {
     title: "Vice President",
-    subtitle: "CodeChef College Chapter",
+    subtitle: "CodeChef BVM Chapter",
     icon: Star,
-    date: "Nov 2024 – Present",
+    date: "Nov 2024 – Oct 2025",
     iconColor: "text-violet-400",
     bgColor: "from-violet-500/20 to-purple-500/10",
     border: "border-violet-500/30",
@@ -16,7 +16,7 @@ const leadership = [
   },
   {
     title: "Event Manager",
-    subtitle: "Microsoft Learn Student Club",
+    subtitle: "Microsoft Learn Student Chapter",
     icon: Users,
     date: "Dec 2023 – Aug 2024",
     iconColor: "text-blue-400",
@@ -35,6 +35,17 @@ const leadership = [
     border: "border-pink-500/30",
     description:
       "Led community events including Bal Parayan and de-addiction campaigns, creating positive impact for 1000+ participants. Demonstrates long-term commitment to social service.",
+  },
+  {
+    title: "Technical Engagement",
+    subtitle: "HackOut’24 Hackathon",
+    icon: Star, // Reusing Star icon as placeholder for Technical Engagement
+    date: "2024",
+    iconColor: "text-amber-400",
+    bgColor: "from-amber-500/20 to-orange-500/10",
+    border: "border-amber-500/30",
+    description:
+      "Active participant in HackOut’24 and various events focused on blockchain, cloud computing, and AI/ML.",
   },
 ];
 

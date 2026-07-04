@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 
 const educationData = [
   {
-    period: "June 2022 – Present",
-    degree: "B.E. in Computer Engineering",
-    institution: "Birla Vishvakarma Mahavidyalaya (BVM), Vallabh Vidyanagar",
-    grade: "CGPA: 8.9",
+    period: "Sep 2022 – May 2026",
+    degree: "B.Tech in Computer Engineering",
+    institution: "Gujarat Technological University (BVM, Vallabh Vidyanagar)",
+    grade: "CGPA: 9.00",
     emoji: "🎓",
     color: "from-indigo-500/20 to-violet-500/20",
     border: "border-indigo-500/30",
@@ -17,10 +17,10 @@ const educationData = [
     ],
   },
   {
-    period: "2020 – 2022",
-    degree: "Higher Secondary (Science – PCM)",
-    institution: "BAPS Swaminarayan Vidyamandir, Anand",
-    grade: "89%",
+    period: "Jun 2021 – Mar 2022",
+    degree: "Higher Secondary (Science – PCM) - 12th Standard",
+    institution: "Gujarat Secondary and Higher Secondary Education Board",
+    grade: "Percentage: 88.92%",
     emoji: "📚",
     color: "from-cyan-500/20 to-blue-500/20",
     border: "border-cyan-500/30",
@@ -28,6 +28,19 @@ const educationData = [
       "Focused on Mathematics, Physics, and Chemistry",
       "Engaged in leadership and cultural activities",
       "Strong analytical foundation for engineering studies",
+    ],
+  },
+  {
+    period: "Jun 2019 – Mar 2020",
+    degree: "Secondary Education – 10th Standard",
+    institution: "Gujarat Secondary and Higher Secondary Education Board",
+    grade: "Percentage: 87.67%",
+    emoji: "🎒",
+    color: "from-teal-500/20 to-emerald-500/20",
+    border: "border-teal-500/30",
+    highlights: [
+      "Built a strong foundation in Science and Mathematics",
+      "Active participant in school competitions and extracurriculars"
     ],
   },
 ];
